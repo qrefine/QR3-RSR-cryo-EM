@@ -1,0 +1,2 @@
+nohup qr.refine EMD-1641.map  placed_model_complete.pdb  mode=refine  quantum.nproc=12 parallel.nproc=5  max_bond_rmsd=0.03  stpmax=0.2 gradient_only=true clustering=true use_convergence_test=true  opt_log=1 restraints=qm  engine_name=xtb quantum.method='--gfn 1 --gbsa h2o' > 3a5x_xtb-gfn1_stpmax02_RSRv1.0-176.log 2>&1 &
+

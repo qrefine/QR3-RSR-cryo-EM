@@ -1,0 +1,1 @@
+qr.refine  3j63_A_box_complete.pdb  3j63_A_box.ccp4  mode=refine max_bond_rmsd=0.03  stpmax=0.2 gradient_only=true clustering=true maxnum_residues_in_cluster=15 use_convergence_test=true  opt_log=1  restraints=qm parallel.method=lsf parallel.qsub_command="bsub -n 4 -q gpu" engine_name=terachem  basis=6-31g  > 3j63_tc_stpmax02_RSR_v1.0-176.log 2>&1 &

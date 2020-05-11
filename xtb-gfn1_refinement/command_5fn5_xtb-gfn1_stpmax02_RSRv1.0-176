@@ -1,0 +1,8 @@
+#!/bin/bash
+#BSUB -J testRS_5fn5
+#BSUB -q cpu39      # this queue just contain cu39.
+#BSUB -n 64
+#BSUB -o test
+
+nohup qr.refine chain_c_box.ccp4  chain_c_box_complete.pdb   mode=refine  quantum.nproc=12 parallel.nproc=5  max_bond_rmsd=0.03  stpmax=0.2 gradient_only=true clustering=true use_convergence_test=true  opt_log=1 restraints=qm  engine_name=xtb quantum.method='--gfn 1 --gbsa h2o' >  5fn5_xtb-gfn1_stpmax02_RSRv1.0-176.log 2>&1 &
+

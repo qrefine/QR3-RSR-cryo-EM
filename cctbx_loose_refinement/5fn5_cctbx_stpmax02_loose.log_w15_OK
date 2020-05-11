@@ -1,0 +1,208 @@
+Starting Q|R
+version:   v1.0-163-gd92089  
+Running refinement
+   input {
+     xray_data {
+       file_name = None
+       labels = None
+       high_resolution = None
+       low_resolution = None
+       outliers_rejection = True
+       french_wilson_scale = True
+       french_wilson {
+         max_bins = 60
+         min_bin_size = 40
+       }
+       sigma_fobs_rejection_criterion = None
+       sigma_iobs_rejection_criterion = None
+       ignore_all_zeros = True
+       force_anomalous_flag_to_be_equal_to = None
+       convert_to_non_anomalous_if_ratio_pairs_lone_less_than_threshold = 0.5
+       r_free_flags {
+         file_name = None
+         label = None
+         test_flag_value = None
+         ignore_r_free_flags = False
+         disable_suitability_test = False
+         ignore_pdb_hexdigest = False
+         generate = False
+         fraction = 0.1
+         max_free = 2000
+         lattice_symmetry_max_delta = 5
+         use_lattice_symmetry = True
+         use_dataman_shells = False
+         n_shells = 20
+       }
+     }
+     pdb {
+       file_name = None
+     }
+     monomers {
+       file_name = None
+     }
+     maps {
+       map_file_name = None
+       d_min = None
+       map_coefficients_file_name = None
+       map_coefficients_label = None
+     }
+     sequence = None
+     scattering_table = wk1995 it1992 *n_gaussian neutron electron
+     wavelength = None
+     energy = None
+     twin_law = Auto
+   }
+   max_atoms = 15000
+   debug = False
+   cluster {
+     fast_interaction = False
+     charge_cutoff = 8.0
+     clustering = true
+     charge_embedding = False
+     two_buffers = False
+     maxnum_residues_in_cluster = 15
+     clustering_method = gnc *bcc
+     altloc_method = *average subtract
+     g_scan = 10 15 20
+     g_mode = None
+     save_clusters = True
+   }
+   restraints = *cctbx qm
+   quantum {
+     engine_name = *mopac ani torchani terachem turbomole pyscf orca gaussian \
+                   xtb
+     charge = None
+     basis = Auto
+     method = Auto
+     memory = None
+     nproc = None
+     qm_addon = gcp dftd3 gcp-d3
+     qm_addon_method = None
+   }
+   refine {
+     dry_run = False
+     sf_algorithm = *direct fft
+     refinement_target_name = *ml ls_wunit_k1
+     mode = opt *refine gtest
+     number_of_macro_cycles = 1
+     number_of_weight_search_cycles = 50
+     number_of_refine_cycles = 5
+     number_of_micro_cycles = 50
+     data_weight = None
+     choose_best_use_r_work = False
+     skip_weight_search = False
+     adjust_restraints_weight_scale_value = 2
+     max_iterations_weight = 50
+     max_iterations_refine = 50
+     use_ase_lbfgs = False
+     line_search = True
+     stpmax = 0.2
+     gradient_only = true
+     update_all_scales = True
+     refine_sites = True
+     refine_adp = False
+     restraints_weight_scale = 1.0
+     shake_sites = False
+     use_convergence_test = true
+     max_bond_rmsd = 0.03
+     max_r_work_r_free_gap = 5.0
+     r_tolerance = 0.001
+     rmsd_tolerance = 0.01
+     opt_log = 1
+     pre_opt = False
+     pre_opt_stpmax = 0.1
+     pre_opt_iter = 10
+     pre_opt_switch = 2
+     pre_opt_gconv = 3000
+   }
+   parallel {
+     method = *multiprocessing slurm pbs sge lsf threading
+     nproc = None
+     qsub_command = None
+   }
+   output_file_name_prefix = None
+   output_folder_name = "pdb"
+   shared_disk = True
+   rst_file = None
+   dump_gradients = None
+
+Setting QM defaults
+  Setting QM method to PM7
+
+ params.gradient_only True
+
+***********************************************************
+restart info will be stored in /home/yaruwang/5fn5_cctbx_refine_loose/pdb/chain_c_box_complete.rst.pickle
+***********************************************************
+
+
+GEOMETRY RESTRAINTS LIBRARY: GEOSTD + MONOMER LIBRARY
+DEVIATIONS FROM IDEAL VALUES.
+  BOND      :  0.013   0.070   1925
+  ANGLE     :  1.763  10.907   2626
+  CHIRALITY :  0.113   0.436    308
+  PLANARITY :  0.007   0.060    320
+  DIHEDRAL  : 19.833 179.847    638
+  MIN NONBONDED DISTANCE : 1.269
+
+MOLPROBITY STATISTICS.
+  ALL-ATOM CLASHSCORE : 14.27
+  RAMACHANDRAN PLOT:
+    OUTLIERS :  2.07 %
+    ALLOWED  :  7.05 %
+    FAVORED  : 90.87 %
+  ROTAMER OUTLIERS : 18.13 %
+  CBETA DEVIATIONS :  2.27 %
+  PEPTIDE PLANE:
+    CIS-PROLINE     : 0.00 %
+    CIS-GENERAL     : 0.85 %
+    TWISTED PROLINE : 0.00 %
+    TWISTED GENERAL : 0.85 %
+Resolution of map is: 4.6382
+Map-model correlation coefficient (CC)
+  CC_mask  : 0.6430
+RSR  weight= None bond: 0.013 angle: 1.76 clash: 14.3 rota: 18.13 rama_f: 90.87 rama_o: 2.07 cb: 2.27 shift=0.0000 cc_mask=0.6430
+RSR: weights to try: [15, 200]
+RSR  weight=15.00 bond: 0.016 angle: 1.41 clash: 34.1 rota: 19.17 rama_f: 79.25 rama_o: 3.32 cb: 0.00 shift=0.3105 cc_mask=0.6794
+DEV: b_rmsd=  0.0163 clash= 34.0909 rota= 19.1710 rama_fav= 79.2531 cbeta= 0.0000
+RSR  weight=200.00 bond: 0.152 angle: 6.96 clash: 644.5 rota: 41.97 rama_f: 47.30 rama_o: 31.12 cb: 70.00 shift=1.3953 cc_mask=0.7505
+DEV: b_rmsd=  0.1520 clash= 644.5447 rota= 41.9689 rama_fav= 47.3029 cbeta= 70.0000
+RSR: weight_best: 15
+RSR: new_weights: [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200]
+RSR: weights to try: [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200]
+RSR  weight=16.00 bond: 0.018 angle: 1.47 clash: 39.1 rota: 19.69 rama_f: 77.59 rama_o: 3.32 cb: 0.00 shift=0.3264 cc_mask=0.6811
+DEV: b_rmsd=  0.0176 clash= 39.1121 rota= 19.6891 rama_fav= 77.5934 cbeta= 0.0000
+RSR: weight_best: None
+RSR (start macro-cycles) weight=15.00 bond: 0.016 angle: 1.41 clash: 34.1 rota: 19.17 rama_f: 79.25 rama_o: 3.32 cb: 0.00 shift=0.3105 cc_mask=0.6794
+RSR  weight=15.00 bond: 0.015 angle: 1.37 clash: 46.5 rota: 19.17 rama_f: 74.27 rama_o: 4.98 cb: 0.00 shift=0.4252 cc_mask=0.6883
+RSR  weight=15.00 bond: 0.016 angle: 1.41 clash: 57.3 rota: 21.76 rama_f: 69.29 rama_o: 8.71 cb: 0.00 shift=0.5767 cc_mask=0.6993
+RSR  weight=15.00 bond: 0.015 angle: 1.41 clash: 62.1 rota: 23.83 rama_f: 64.73 rama_o: 10.79 cb: 0.00 shift=0.7190 cc_mask=0.7074
+RSR  weight=15.00 bond: 0.015 angle: 1.41 clash: 66.1 rota: 26.42 rama_f: 63.90 rama_o: 12.86 cb: 0.00 shift=0.7769 cc_mask=0.7129
+RSR  weight=15.00 bond: 0.015 angle: 1.40 clash: 69.8 rota: 26.42 rama_f: 61.00 rama_o: 12.03 cb: 0.00 shift=0.8440 cc_mask=0.7167
+
+GEOMETRY RESTRAINTS LIBRARY: GEOSTD + MONOMER LIBRARY
+DEVIATIONS FROM IDEAL VALUES.
+  BOND      :  0.015   0.088   1925
+  ANGLE     :  1.404   8.423   2626
+  CHIRALITY :  0.060   0.242    308
+  PLANARITY :  0.007   0.073    320
+  DIHEDRAL  : 19.583 135.440    638
+  MIN NONBONDED DISTANCE : 1.813
+
+MOLPROBITY STATISTICS.
+  ALL-ATOM CLASHSCORE : 69.77
+  RAMACHANDRAN PLOT:
+    OUTLIERS : 12.03 %
+    ALLOWED  : 26.97 %
+    FAVORED  : 61.00 %
+  ROTAMER OUTLIERS : 26.42 %
+  CBETA DEVIATIONS :  0.00 %
+  PEPTIDE PLANE:
+    CIS-PROLINE     : 0.00 %
+    CIS-GENERAL     : 0.85 %
+    TWISTED PROLINE : 0.00 %
+    TWISTED GENERAL : 0.00 %
+Resolution of map is: 4.6382
+Map-model correlation coefficient (CC)
+  CC_mask  : 0.7167
+Time: 2037.8529

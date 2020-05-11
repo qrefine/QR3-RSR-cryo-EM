@@ -1,0 +1,2 @@
+nohup qr.refine chain_c_box.ccp4  chain_c_box_complete.pdb   mode=refine   max_bond_rmsd=0.03  stpmax=0.2 gradient_only=true clustering=true use_convergence_test=true  opt_log=1 restraints=cctbx  > 5fn5_cctbx_stpmax02_loose.log 2>&1 &
+
